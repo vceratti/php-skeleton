@@ -32,17 +32,17 @@ The commands included in the pre-commit script include the following:
 
 - Tests were written and run with PHP Unit 9.
 ```
-./composer composer phpunit
-./composer composer phpunit-coverage
+./composer phpunit
+./composer phpunit-coverage
 ```
 
 - Code style can be normalized before commit using [php-cs-fixer rules](.php_cs.dist):
 ```
-./composer composer php-cs-fixer
+./composer php-cs-fixer
 ```
 
 - For clean code, code size and other checks, use [phpmd rules](phpmd-ruleset.xml):
 ```
-./composer composer phpmd
+./composer phpmd
 ```
 
