@@ -1,0 +1,42 @@
+{
+  "name": "vceratti/php-skeleton",
+  "license": "MIT",
+  "description": "",
+  "authors": [
+    {
+      "name": "Vinícius Ceratti",
+      "email": "v.ceratti@gmail.com",
+      "homepage": "https://www.linkedin.com/in/vceratti"
+    }
+  ],
+
+  "autoload": {
+    "psr-4": {
+      "Source\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests"
+    }
+  },
+  "require": {
+    "php": "^8.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5",
+    "friendsofphp/php-cs-fixer": "^2.18",
+    "phpmd/phpmd": "^2.9"
+  },
+  "scripts": {
+    "phpunit": "XDEBUG_MODE=off phpunit --colors=always --no-coverage --testdox",
+    "phpunit-coverage": "XDEBUG_MODE=coverage phpunit --coverage-html build/coverage-report",
+    "php-cs-fixer": "XDEBUG_MODE=off php-cs-fixer fix --verbose --show-progress=estimating --format=txt --allow-risky=yes --ansi",
+    "phpmd": "XDEBUG_MODE=off phpmd . text phpmd-ruleset.xml --exclude docker --exclude .idea",
+    "pre-commit": [
+      "@phpunit-coverage",
+      "@php-cs-fixer",
+      "@phpmd"
+    ]
+  }
+}

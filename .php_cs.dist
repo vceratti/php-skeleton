@@ -1,0 +1,46 @@
+<?php declare(strict_types=1);
+
+$excludedDirs = ['build', 'docker'];
+
+$finder = PhpCsFixer\Finder::create()->in(__DIR__ . '/..')->exclude($excludedDirs);
+
+/**
+ * @see https://mlocati.github.io/php-cs-fixer-configurator/#version:2.15 for details/examples of configuration options
+ */
+
+$rules = [
+    '@PSR12' => true,
+    'declare_strict_types' => true,
+    'array_syntax' => ['syntax' => 'short'],
+    'blank_line_before_statement' => ['statements' => ['return']],
+    'general_phpdoc_annotation_remove' => ['param', 'return', 'var', 'property'],
+    'no_superfluous_phpdoc_tags' => true,
+    'single_line_comment_style' => ['comment_types' => ['asterisk']],
+    'single_quote' => ['strings_containing_single_quote_chars' => true],
+    'modernize_types_casting' => true,
+    'native_function_casing' => true,
+    'native_function_type_declaration_casing' => true,
+    'no_blank_lines_after_phpdoc' => true,
+    'no_empty_comment' => true,
+    'no_empty_phpdoc' => true,
+    'no_empty_statement' => true,
+    'no_extra_blank_lines' => true,
+    'no_leading_import_slash' => true,
+    'no_leading_namespace_whitespace' => true,
+    'no_null_property_initialization' => true,
+    'no_short_bool_cast' => true,
+    'no_spaces_around_offset' => true,
+    'no_unneeded_control_parentheses' => true,
+    'no_unneeded_curly_braces' => true,
+    'no_unreachable_default_argument_value' => true,
+    'no_unused_imports' => true,
+    'no_useless_return' => true,
+    'no_whitespace_in_blank_line' => true,
+    'php_unit_test_class_requires_covers' => true,
+    'pow_to_exponentiation' => true,
+    'protected_to_private' => true,
+    'single_blank_line_before_namespace' => true,
+    'trim_array_spaces' => true
+];
+
+return (new PhpCsFixer\Config())->setRules($rules)->setFinder($finder);

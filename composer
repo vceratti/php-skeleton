@@ -1,0 +1,11 @@
+#!/bin/sh
+
+isRunning=$(docker-compose ps | grep "php.*Up")
+if [ -z "${isRunning}" ]; then
+  docker-compose build --pull
+  docker-compose up -d
+fi;
+
+docker-compose exec php sh -c "composer ${*}"
+
+docker-compose exec php sh -c "chown -Rf $(id -u):$(id -g) ."

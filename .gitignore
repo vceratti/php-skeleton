@@ -1,0 +1,9 @@
+.idea/workspace.xml
+.idea/php.xml
+
+docker/.composer
+vendor
+build
+
+.phpunit.result.cache
+.php_cs.cache
